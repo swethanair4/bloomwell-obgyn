@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bloomwell | Appointment Booking</title>
+      <link rel="stylesheet" href="BloomWell.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+   </head>
+   <body>
+       <!-- Hero Banner -->
+       <section class="hero">
+        <div>
+           <h1>Appointment Booking</h1>
+           <a href="BloomWell Health.html">
+            <img src="BloomWelllogo.png" alt="Bloomwell OBGYN Logo" class="hero-logo">
+          </a>
+        </div>
+        <p>Your lifelong partner in compassionate, expert women's healthcare</p>
+     </section>
+
+      <!-- Navigation Bar -->
+      <nav class="nav">
+        <div class="dropdown">
+          <a href="#book with" class="dropbtn">Book With<i class="fa-solid fa-caret-down"></i></a> &nbsp;
+          <div class="dropdown-content">
+              <a href="#Dr. Amina Yusuf">Dr. Amina Yusuf</a>
+              <a href="#Dr. Mei Lin Zhang">Dr. Mei Lin Zhang</a>
+              <a href="#Dr. Miguel Santos">Dr. Miguel Santos</a>
+              <a href="#Dr. Priya Patel">Dr. Priya Patel</a>
+              <a href="#Dr. Sofia Ramirez">Dr. Sofia Ramirez</a>
+              <a href="#Dr. Kwame Nkrumah">Dr. Kwame Nkrumah</a>
+          </div>
+      </div>
+         <a href="BloomWell Health.html">Home</a> &nbsp;
+         <a href="AboutUs.html">About Us</a> &nbsp;
+         <a href="Resources.html">Resources</a> &nbsp;
+         <a href="PatientPortal.html">Patient Portal</a> &nbsp;
+         <a href="ContactUs.html">Contact Us</a>
+         <div class="toggle-switch">
+          <input type="checkbox" id="darkModeCheckbox">
+          <label for="darkModeCheckbox" class="switch-label">
+              <span class="switch-icon sun">☀️</span>
+              <span class="switch-icon moon">🌙</span>
+              <span class="switch-ball"></span>
+          </label>
+        </div>
+      </nav>
+
+      <!-- Doctor Booking -->
+      <div class="booking-container"> 
+        
+
+        <div class="doctor-list">
+            <section id="Dr. Amina Yusuf">
+                <!-- Each doctor in a button-like div -->
+                <div class="doctor-card" onclick="showDoctor('amina')">
+                    <img src="Dr. Amina Yusuf.png" alt="Dr. Amina Yusuf" />
+                <h3>Dr. Amina Yusuf</h3>
+                <p>Book with me!</p>
+                </div>
+            </section>
+
+            <section id="Dr. Mei Lin Zhang">
+                 <!-- Each doctor in a button-like div -->
+                 <div class="doctor-card" onclick="showDoctor('mei')">
+                    <img src="Dr. Mei Lin Zhang.png" alt="Dr. Mei Lin Zhang" />
+                    <h3>Dr. Mei Lin Zhang</h3>
+                    <p>Book with me!</p>
+                </div> 
+                </section>
+
+            <section id="Dr. Miguel Santos">
+                 <!-- Each doctor in a button-like div -->
+                 <div class="doctor-card" onclick="showDoctor('miguel')">
+                    <img src="Dr. Migual Santos.png" alt="Dr. Miguel Santos" />
+                <h3>Dr. Miguel Santos</h3>
+                <p>Book with me!</p>
+                </div>
+            </section>
+
+            <section id="Dr. Priya Patel">
+                 <!-- Each doctor in a button-like div -->
+                 <div class="doctor-card" onclick="showDoctor('priya')">
+                    <img src="Dr. Priya Patel.png" alt="Dr. Priya Patel" />
+                    <h3>Dr. Priya Patel</h3>
+                    <p>Book with me!</p>
+                </div>
+                </section>
+
+            <section id="Dr. Sofia Ramirez">
+                 <!-- Each doctor in a button-like div -->
+                 <div class="doctor-card" onclick="showDoctor('sofia')">
+                    <img src="Dr. Sofia Ramirez.png" alt="Dr. Sofia Ramirez" />
+                <h3>Dr. Sofia Ramirez</h3>
+                <p>Book with me!</p>
+                </div>
+            </section>
+
+            <section id="Dr. Kwame Nkrumah">
+                 <!-- Each doctor in a button-like div -->
+                 <div class="doctor-card" onclick="showDoctor('kwame')">
+                    <img src="Dr. Kwame Nkrumah.png" alt="Dr. Kwame Nkrumah" />
+                    <h3>Dr. Kwame Nkrumah</h3>
+                    <p>Book with me!</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="doctor-profile" id="doctor-profile" style="display: none;">
+            <div class="doctor-details">
+              <img id="profile-img" class="profile-img" src="" alt="Doctor Image">
+              <div class="doctor-info">
+                <h2 id="profile-name"></h2>
+                <p class="bio" id="profile-bio"></p>
+              </div>
+            </div>
+          
+            <div class="calendar">
+              <div class="calendar-header">
+                <button onclick="changeMonth(-1)">&#8592;</button>
+                <h3 id="calendar-month"></h3>
+                <button onclick="changeMonth(1)">&#8594;</button>
+              </div>
+          
+              <div class="calendar-labels">
+                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+              </div>
+          
+              <div class="calendar-grid" id="calendar-grid"></div>
+          
+              <div id="booking-form" style="display: none; margin-top: 20px;">
+                <h4>Book appointment for <span id="selected-date"></span></h4>
+                <form onsubmit="submitAppointment(event)">
+                    <div class="form-row">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="e.g., Jane Doe" required>
+                      </div>
+                      
+                      <div class="form-row">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="e.g., jane@example.com" required>
+                      </div>
+                      
+                  <div id="time-slots" style="margin-top: 10px;"></div>
+                  <button type="submit">Confirm Booking</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+    <script>
+        let currentDate = new Date(); // global date tracker
+        let selectedTime = null;
+
+
+        const doctorData = {
+          amina: {
+            name: "Dr. Amina Yusuf",
+            img: "Dr. Amina Yusuf.png",
+            bio: "Dr. Yusuf specializes in prenatal and postnatal care with over a decade of experience supporting women through every stage of pregnancy. She is known for her calming presence and deep commitment to holistic, patient-centered care. She is an OBGYN with 10+ years of compassionate care. Fluent in English and Arabic.",
+            calendar: "March 2025"
+          },
+          mei: {
+            name: "Dr. Mei Lin Zhang",
+            img: "Dr. Mei Lin Zhang.png",
+            bio: "Dr. Zhang combines advanced surgical expertise with a compassionate, culturally sensitive approach to gynecology. Fluent in Mandarin and English, she’s passionate about empowering patients through education and preventive care.",
+            calendar: "March 2025"
+          },
+          miguel: {
+            name: "Dr.  Miguel Santos",
+            img: "Dr. Migual Santos.png",
+            bio: "With a background in minimally invasive surgery, Dr. Santos focuses on effective, personalized treatment plans for complex gynecological conditions. He is dedicated to creating a supportive space for all patients.",
+            calendar: "March 2025"
+          },
+          priya: {
+            name: "Dr. Priya Patel",
+            img: "Dr. Priya Patel.png",
+            bio: "Dr. Patel brings a warm, empathetic approach to women’s health, specializing in adolescent gynecology and fertility consultations. She emphasizes communication and trust in every aspect of care.",
+            calendar: "March 2025"
+          },
+          sofia: {
+            name: "Dr. Sofia Ramirez",
+            img: "Dr. Sofia Ramirez.png",
+            bio: "Dr. Ramirez is a strong advocate for reproductive health equity and access, particularly within underserved communities. Her clinical interests include menopause management and hormonal therapies.",
+            calendar: "March 2025"
+          },
+          kwame: {
+            name: "Dr. Kwame Nkrumah",
+            img: "Dr. Kwame Nkrumah.png",
+            bio: "Dr. Nkrumah integrates evidence-based medicine with compassionate dialogue, offering exceptional care in obstetrics and preventive gynecology. She is also active in community outreach and maternal wellness initiatives.",
+            calendar: "March 2025"
+          }
+          
+        };
+        
+        function showDoctor(key) {
+        const profile = doctorData[key];
+        const profileDiv = document.getElementById('doctor-profile');
+
+        document.getElementById('profile-img').src = profile.img;
+        document.getElementById('profile-img').alt = profile.name;
+        document.getElementById('profile-name').textContent = profile.name;
+        document.getElementById('profile-bio').textContent = profile.bio;
+        document.getElementById('calendar-month').textContent = profile.calendar;
+
+        profileDiv.classList.add('expanded');
+        profileDiv.style.display = 'block';
+        generateCalendar(); }
+
+        function generateCalendar() {
+        const calendarGrid = document.getElementById('calendar-grid');
+        const calendarMonth = document.getElementById('calendar-month');
+        const today = new Date();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        calendarMonth.textContent = `${monthNames[month]} ${year}`;
+
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        calendarGrid.innerHTML = "";
+
+        // Fill blanks
+        for (let i = 0; i < firstDay; i++) {
+            const blank = document.createElement('div');
+            calendarGrid.appendChild(blank);
+        }
+
+        // Fill days
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dateObj = new Date(year, month, day);
+            const dayCell = document.createElement('div');
+            dayCell.textContent = day;
+            dayCell.classList.add('calendar-day');
+            if (dateObj < today.setHours(0, 0, 0, 0)) {
+            dayCell.classList.add('disabled');
+            } else {
+            dayCell.addEventListener('click', () => selectDate(`${monthNames[month]} ${day}, ${year}`));
+            }
+
+            calendarGrid.appendChild(dayCell);
+        }
+        }
+        function changeMonth(offset) {
+        currentDate.setMonth(currentDate.getMonth() + offset);
+        generateCalendar();
+        }
+
+        document.addEventListener('click', function(event) {
+        const profileDiv = document.getElementById('doctor-profile');
+        const doctorList = document.querySelector('.doctor-list');
+
+ // If the click was outside both the profile and doctor list
+        if (!profileDiv.contains(event.target) && !doctorList.contains(event.target)) {
+            profileDiv.style.display = 'none';
+            profileDiv.classList.remove('expanded');
+        }
+        });
+
+        function selectDate(date) {
+          console.log("Selected date:", date);
+
+          document.getElementById('selected-date').textContent = date;
+          document.getElementById('booking-form').style.display = 'block';
+
+          const timeContainer = document.getElementById('time-slots');
+          timeContainer.innerHTML = "";
+
+          const doctor = document.getElementById('profile-name').textContent;
+          console.log("Selected doctor:", doctor);
+
+          fetch(`http://localhost:3000/api/appointments?doctor=${encodeURIComponent(doctor)}&date=${encodeURIComponent(date)}`)
+            .then(res => {
+              console.log("Fetch status:", res.status);
+              if (!res.ok) {
+                throw new Error(`Server responded with status ${res.status}`);
+              }
+              return res.json();
+            })
+            .then(data => {
+              console.log("Data received:", data);
+              const booked = data.bookedTimes || [];
+
+              for (let hour = 9; hour < 17; hour++) {
+                for (let min = 0; min < 60; min += 30) {
+                  let period = hour >= 12 ? "PM" : "AM";
+                  let hour12 = hour % 12 || 12;
+                  const timeFormatted = `${hour12}:${min === 0 ? '00' : min} ${period}`;
+
+                  const timeBtn = document.createElement('button');
+                  timeBtn.textContent = timeFormatted;
+                  timeBtn.classList.add('time-slot');
+                  timeBtn.type = 'button';
+
+                  if (booked.includes(timeFormatted)) {
+                    timeBtn.classList.add('disabled-slot');
+                    timeBtn.disabled = true;
+                    timeBtn.title = "This appointment slot is unavailable.";
+                  } else {
+                    timeBtn.addEventListener('click', () => {
+                      selectedTime = timeFormatted;
+                      document.querySelectorAll('.time-slot').forEach(btn => btn.classList.remove('selected'));
+                      timeBtn.classList.add('selected');
+                    });
+                  }
+
+                  timeContainer.appendChild(timeBtn);
+                }
+              }
+            })
+            .catch(error => {
+              console.error("Error fetching booked appointments:", error);
+              timeContainer.innerHTML = "<p style='color:red;'>Unable to load time slots. Please try again later.</p>";
+            });
+        }
+
+
+
+
+        
+        
+
+        function submitAppointment(e) {
+            e.preventDefault();
+
+            const name = e.target.querySelector('input[type="text"]').value.trim();
+            const emailField = e.target.querySelector('input[type="email"]');
+            const email = emailField.value.trim();
+            const date = document.getElementById('selected-date').textContent;
+            const doctor = document.getElementById('profile-name').textContent;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                emailField.focus();
+                return;
+            }
+
+            if (!selectedTime) {
+                alert("Please select a time slot.");
+                return;
+            }
+
+            // Send form data to backend
+            fetch('http://localhost:3000/api/appointments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                name,
+                email,
+                date,
+                time: selectedTime,
+                doctor
+                })
+            })
+            .then(res => {
+                if (!res.ok) {
+                throw new Error("Failed to save appointment");
+                }
+                return res.json();
+            })
+            .then(data => {
+                alert(data.message || `Appointment booked for ${name} on ${date} at ${selectedTime}.`);
+
+                // Reset form and UI
+                e.target.reset();
+                document.getElementById('booking-form').style.display = 'none';
+                selectedTime = null;
+                document.querySelectorAll('.time-slot').forEach(btn => btn.classList.remove('selected'));
+            })
+            .catch(error => {
+                console.error("Booking error:", error);
+                alert("There was a problem booking your appointment. Please try again later.");
+            });
+        }
+
+
+
+
+       
+        </script>
+        
+     <footer> 
+      <p>📧 Email us at <a href="mailto:info@bloomwell.com" style="color: white; text-decoration: underline;">info@bloomwell.com</a></p>
+      <p>📞 Call us at <strong>(123) 456-8910</strong></p>
+      <p>&copy; 2025 Bloomwell OBGYN. All rights reserved.</p>
+   </footer>
+<button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+    
+    <script>
+      const darkToggle = document.getElementById('darkModeCheckbox');
+    
+      // Load saved preference
+      if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        darkToggle.checked = true;
+      }
+    
+      darkToggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('dark-mode', darkToggle.checked ? 'enabled' : 'disabled');
+      });
+      
+    </script>
+    
+    
+   </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Portal</title>
+    <link rel="stylesheet" href="BloomWell.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header id="portal">
+        <h1>❤️Bloomwell Health Patient Portal</h1> 
+        <a href="PatientPortal.html" class="logout-button">Logout</a>
+    </header>
+    <main> 
+        <p id="welcome">Welcome back!</p>  
+        <p id="p-intro">Here is your health overview:</p>
+        <section id="Dashboard">
+            <div class="summary-box">
+                <h4>Next Appointment 📅</h4>
+                <p class="summary-date">May 15, 2025</p>
+                <p class="summary-time">11:00 AM</p>
+            </div> 
+            <div class="summary-box">
+                <h4>Last Visit 🕓</h4>
+                <p class="summary-date">April 30, 2025</p>
+                <p class="summary-note">Regular Checkup</p>
+              </div>  
+              <div class="summary-box">
+                <h4>Messages 📨</h4>
+                <p class="summary-count">2 Unread</p>
+                <p class="summary-note">From your doctor</p>
+              </div>
+        </section> 
+
+        <section id="Upcoming-Appts"> 
+            <h4>Upcoming Appointments</h4>
+          
+            <div class="appt-box">
+              <img src="Dr. Amina Yusuf.png" alt="Dr. Amina Yusuf" class="doctor-photo">
+              <div class="appt-details">
+                <p class="doctor-name">Dr. Amina Yusuf</p>
+                <p class="appt-type">Prenatal Checkup</p>
+              </div>
+              <div class="appt-date-time">
+                <p class="appt-date">May 15, 2025</p>
+                <p class="appt-time">11:00 AM</p>
+              </div>
+            </div>
+          
+            <div class="appt-box">
+              <img src="Dr. Sofia Ramirez.png" alt="Dr. Sofia Ramirez" class="doctor-photo">
+              <div class="appt-details">
+                <p class="doctor-name">Dr. Sofia Ramirez</p>
+                <p class="appt-type">Ultrasound</p>
+              </div>
+              <div class="appt-date-time">
+                <p class="appt-date">May 22, 2025</p>
+                <p class="appt-time">2:00 PM</p>
+              </div>
+            </div>
+          </section> 
+
+        <section id="Recent-Actions">
+            <h4>Recent Activities</h4>
+          
+            <div class="activities">
+              <p class="act-icon">🩸</p>
+          
+              <div class="act-content">
+                <p class="act-name">Lab Results Updated</p>
+                <p class="act-note">Blood work results now available</p>
+              </div>
+          
+              <p class="act-date">3 days ago</p>
+            </div>
+          
+            <div class="activities">
+              <p class="act-icon">💊</p>
+          
+              <div class="act-content">
+                <p class="act-name">Prescription Renewed</p>
+                <p class="act-note">Prenatal vitamins prescription renewed</p>
+              </div>
+          
+              <p class="act-date">6 days ago</p>
+            </div>
+        </section> 
+        <section id="Payment-page">
+            <h5>If you would like to make a payment, click <a id="payment-link" href="PatientPayment.html">here</a></h5>
+        </section>    
+    </main>
+    <footer>
+        <p>&copy; 2025 Bloomwell Health. All rights reserved.</p>
+    </footer> 
+    <script>
+        const params = new URLSearchParams(window.location.search); 
+        const username = params.get('username');  // Get the username from the URL parameters 
+
+        if (username) {
+           document.getElementById('welcome').textContent = `Welcome back, ${username}!`; // Update the welcome message with the username
+           
+           // Append the username to the payment link
+           const paymentLink = document.getElementById('payment-link');
+           const paymentUrl = new URL(paymentLink.href);
+           paymentUrl.searchParams.set('username', username);
+           paymentLink.href = paymentUrl.toString();
+        }
+    </script>
+
+</body>
+</html>

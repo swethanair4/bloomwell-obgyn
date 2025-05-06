@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bloomwell OBGYN</title>
+      <link rel="stylesheet" href="BloomWell.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <style>
+       
+      
+       
+         
+         
+         .testimonial-container, .services-grid, .stats-grid {
+           display: grid;
+           gap: 20px;
+           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+           margin-top: 20px;
+         }
+         
+         .testimonial-author {
+           font-style: italic;
+           margin-top: 10px;
+           color: #880e4f;
+         }
+         .stat-card h3 {
+           margin: 0;
+           font-size: 2.5rem;
+           color: #880e4f;
+         }
+         .stat-card p {
+           margin-top: 10px;
+           font-size: 1rem;
+         }
+         footer {
+           background-color: #f48fb1;
+           color: white;
+           text-align: center;
+           padding: 20px;
+           font-size: 0.9rem;
+         }
+        
+  
+  .hoverable {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .hoverable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+</style>
+   </head>
+   <body>
+      <!-- Hero Banner -->
+      <section class="hero">
+         <div >
+            <h1>Bloomwell OBGYN</h1>
+            <a href="BloomWell Health.html">
+                <img src="BloomWelllogo.png" alt="Bloomwell OBGYN Logo" class="hero-logo">
+              </a>              
+         </div>
+         <p>Your lifelong partner in compassionate, expert women's healthcare</p>
+      </section>
+
+      <!-- Navigation Bar -->
+  <nav class="nav">
+    <div class="dropdown">
+      <a href="BloomWell Health.html" class="dropbtn">Home <i class="fa-solid fa-caret-down"></i></a> &nbsp;
+      <div class="dropdown-content">
+        <a href="#welcome">Welcome</a>
+        <a href="#services">Our Services</a>
+        <a href="#impacts">Impacts</a>
+        <a href="#health-tips">Health Tips</a>
+        <a href="#testimonials">Testimonials</a>
+      </div>
+    </div>
+    <a href="AboutUs.html">About Us</a>
+    <a href="AppointmentBooking.html">Book Appointment</a>
+    <a href="Resources.html">Resources</a>
+    <a href="PatientPortal.html">Patient Portal</a>
+    <a href="ContactUs.html">Contact</a>
+    <div class="toggle-switch">
+      <input type="checkbox" id="darkModeCheckbox">
+      <label for="darkModeCheckbox" class="switch-label">
+        <span class="switch-icon sun">☀️</span>
+        <span class="switch-icon moon">🌙</span>
+        <span class="switch-ball"></span>
+      </label>
+    </div>
+  </nav>
+
+      <!-- Who We Are Section -->
+      <section id="who-we-are" class="boxed-section fade-in">
+         <h2>Who We Are</h2>
+         <p>At Bloomwell OBGYN, we are more than a clinic — we are your lifelong partner in women’s health. Our mission is to deliver personalized, holistic, and evidence-based care at every stage of womanhood, from adolescence to menopause and beyond. Our trusted providers blend expertise with empathy to ensure every patient feels heard, safe, and empowered.</p>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="boxed-section">
+         <h2>Our Services</h2>
+         <div class="services-grid">
+            <div class="service-card hoverable">Comprehensive Gynecological Care</div>
+            <div class="service-card hoverable">Pregnancy & Prenatal Care</div>
+            <div class="service-card hoverable">Fertility Counseling</div>
+            <div class="service-card hoverable">Hormonal Treatments</div>
+            <div class="service-card hoverable">Minimally Invasive Surgeries</div>
+            <div class="service-card hoverable">Menopause Management</div>
+         </div>
+            
+         </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section id="impacts" class="boxed-section">
+         <h2>Empowering Women Every Step of the Way</h2>
+         <div class="stats-grid">
+            <div class="stat-card hoverable">
+               <h3>98%</h3>
+               <p>Patient Satisfaction</p>
+            </div>
+            <div class="stat-card hoverable">
+               <h3>12,000+</h3>
+               <p>Appointments Booked</p>
+            </div>
+            <div class="stat-card hoverable">
+               <h3>500+</h3>
+               <p>Babies Delivered</p>
+            </div>
+            <div class="stat-card hoverable">
+               <h3>30+</h3>
+               <p>Years of Experience</p>
+            </div>
+         </div>
+            
+         </div>
+      </section>
+
+      <!-- Health Tips Section -->
+      <section id="health-tips" class="boxed-section">
+         <h2>Women's Health Tips</h2>
+         <ul>
+            <li>🩺 Schedule regular pap smears and breast exams</li>
+            <li>🏃‍♀️ Stay active with 30 minutes of movement daily</li>
+            <li>🥗 Eat a nutrient-rich diet with calcium & iron</li>
+            <li>💊 Talk to your doctor about birth control options</li>
+            <li>📅 Don't skip annual wellness checkups</li>
+         </ul>
+      </section>
+
+      <!-- Patient Testimonials Section -->
+      <section id="testimonials" class="boxed-section">
+         <h2>What Our Patients Are Saying</h2>
+         <div class="testimonial-container">
+            <div class="testimonial">
+               <p>“The doctors at Bloomwell were kind, knowledgeable, and made me feel truly cared for during my pregnancy journey.”</p>
+               <p class="testimonial-author">– Jessica R.</p>
+            </div>
+            <div class="testimonial">
+               <p>“From check-in to follow-up, Bloomwell's team was professional and empathetic. I wouldn’t go anywhere else!”</p>
+               <p class="testimonial-author">– Maria L.</p>
+            </div>
+            <div class="testimonial">
+               <p>“The care I received for my hormonal treatment was life-changing. Highly recommend Bloomwell OBGYN!”</p>
+               <p class="testimonial-author">– Emily T.</p>
+            </div>
+            <div class="testimonial">
+               <p>“They truly listen. I never feel rushed, and I leave every appointment feeling confident and supported.”</p>
+               <p class="testimonial-author">– Rachel K.</p>
+            </div>
+            <div class="testimonial">
+               <p>“Bloomwell helped me through a tough time with compassion and expert care. Forever grateful.”</p>
+               <p class="testimonial-author">– Priya M.</p>
+            </div>
+            <div class="testimonial">
+               <p>“Exceptional care from start to finish. Bloomwell OBGYN exceeded all my expectations.”</p>
+               <p class="testimonial-author">– Leah S.</p>
+            </div>
+         </div>
+      </section>
+
+      <!-- Contact and Footer Section -->
+      <footer>
+         <p>📧 Email us at <a href="mailto:info@bloomwell.com" style="color: white; text-decoration: underline;">info@bloomwell.com</a></p>
+         <p>📞 Call us at <strong>(123) 456-8910</strong></p>
+         <p>&copy; 2025 Bloomwell OBGYN. All rights reserved.</p>
+      </footer>
+   <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+
+<script>
+  // Show scroll-to-top button
+  const scrollBtn = document.querySelector('.scroll-to-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+
+  // Fade in on scroll
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+<script>
+    const darkToggle = document.getElementById('darkModeCheckbox');
+  
+    // Load saved preference
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      document.body.classList.add('dark-mode');
+      darkToggle.checked = true;
+    }
+  
+    darkToggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('dark-mode', darkToggle.checked ? 'enabled' : 'disabled');
+    });
+    
+  </script>
+</body>
+</html>

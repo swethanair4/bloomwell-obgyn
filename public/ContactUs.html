@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | BloomWell</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="BloomWell.css">
+
+</head>
+<body>
+    
+      <!-- Hero Banner -->
+      <section class="hero" >
+        <div>
+          <h1>Contact Us</h1>
+          <a href="BloomWell Health.html">
+            <img src="BloomWelllogo.png" alt="Bloomwell OBGYN Logo" class="hero-logo">
+          </a>
+        </div>
+        <p style="margin-top: 10px; font-size: 1.2rem;">Connect with us to get answers for your gynecology questions</p>
+      </section>
+    
+      <!-- Navigation Bar -->
+      <nav class="nav">
+        <a href="BloomWell Health.html"> Home</a>
+        <a href="AboutUs.html"> About Us</a>
+        <a href="AppointmentBooking.html">Book Appointment</a>
+        <a href="Resources.html"> Resources</a>
+        <a href="PatientPortal.html"></i> Patient Portal</a>
+        <a href="ContactUs.html"> Contact</a>
+        <div class="toggle-switch">
+          <input type="checkbox" id="darkModeCheckbox">
+          <label for="darkModeCheckbox" class="switch-label">
+            <span class="switch-icon sun">☀️</span>
+            <span class="switch-icon moon">🌙</span>
+            <span class="switch-ball"></span>
+          </label>
+        </div>
+      </nav>
+    
+      <!-- Contact Section -->
+      <section id="contact" class="boxed-section fade-in">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feedback, or concerns, feel free to reach out to us. We're here to help.</p>
+        <div class="contact-container">
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@bloomwell.com">info@bloomwell.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+1234568910">(123) 456-8910</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Wellness Ave, San Jose, CA 95112</p>
+          </div>
+          <form id="contact-form" action="https://formspree.io/f/xvgaaopl" method="POST">
+            <div>
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" name="name" required placeholder="Jane Doe">
+            </div>
+            <div>
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" required placeholder="jane@example.com">
+            </div>
+            <div>
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" name="message" rows="5" required placeholder="Type your question or concern here..."></textarea>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+    
+      <!-- FAQ Section -->
+      <section id="faq" class="boxed-section fade-in">
+        <h2>Frequently Asked Questions</h2>
+        <div >
+          <details>
+            <summary><i class="fas fa-question-circle"></i> Do I need a referral to make an appointment?</summary>
+            <p>No referral is necessary. You can book a consultation directly through our website without needing prior approval.</p>
+          </details>
+          <details>
+            <summary><i class="fas fa-file-medical"></i> What insurance do you accept?</summary>
+            <p>We accept most major insurance providers. Visit our insurance page or contact our billing team for details.</p>
+          </details>
+          <details>
+            <summary><i class="fas fa-vials"></i> How can I access my test results?</summary>
+            <p>Log in to your BloomWell patient portal using your secure credentials to view test results and visit summaries.</p>
+          </details>
+          <details>
+            <summary><i class="fas fa-laptop-medical"></i> Are virtual appointments available?</summary>
+            <p>Yes, we offer secure virtual consultations using HIPAA-compliant video platforms for your convenience and safety.</p>
+          </details>
+        </div>
+      </section>
+    
+      <!-- Patient Forms Section -->
+      <section id="forms" class="forms-section boxed-section fade-in">
+        <h2>Patient Forms & Resources</h2>
+        <p >Please download and complete the necessary forms prior to your appointment. You can bring printed copies or upload them securely through your patient portal.</p>
+        <div class="forms-container">
+          <a href="forms/new_patient_intake_form.pdf" target="_blank"><i class="fas fa-file-alt"></i> New Patient Intake Form</a>
+          <a href="forms/insurance_info_form.pdf" target="_blank"><i class="fas fa-clipboard-list"></i> Insurance Info Form</a>
+          <a href="forms/privacy_policy.pdf" target="_blank"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+        </div>
+      </section>
+    
+      <footer>
+        <p>📧 Email us at <a href="mailto:info@bloomwell.com" style="color: white; text-decoration: underline;">info@bloomwell.com</a></p>
+        <p>📞 Call us at <strong>(123) 456-8910</strong></p>
+        <p>&copy; 2025 Bloomwell OBGYN. All rights reserved.</p>
+      </footer>
+    
+      <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+      <script>
+        const scrollBtn = document.querySelector('.scroll-to-top');
+        window.addEventListener('scroll', () => {
+          scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+    
+        const darkToggle = document.getElementById('darkModeCheckbox');
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+          document.body.classList.add('dark-mode');
+          darkToggle.checked = true;
+        }
+        darkToggle.addEventListener('change', () => {
+          document.body.classList.toggle('dark-mode');
+          localStorage.setItem('dark-mode', darkToggle.checked ? 'enabled' : 'disabled');
+        });
+        
+      
+    
+      </script>
+    </body>
+    </html>

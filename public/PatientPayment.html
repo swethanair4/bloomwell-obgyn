@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Portal</title>
+    <link rel="stylesheet" href="BloomWell.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header id="portal">
+        <h1>❤️Bloomwell Health Payment Portal</h1> 
+        <a href="PatientPortal.html" class="logout-button">Logout</a>
+    </header>
+    <main> 
+        <div id="payment-header">
+            <p id="welcome2">Welcome to the Patient Payment page.</p> 
+            <p>Please enter your card information below to make a payment.</p>
+        </div> 
+        <section id="upcoming-payments">
+            <h2>Upcoming Payments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment Amount</th>
+                        <th>Due Date</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$150.00</td>
+                        <td>2025-03-15</td>
+                        <td>Monthly consultation fee</td>
+                    </tr>
+                    <tr>
+                        <td>$200.00</td>
+                        <td>2025-04-01</td>
+                        <td>Annual health check-up</td>
+                    </tr>
+                    <tr>
+                        <td>$75.00</td>
+                        <td>2025-04-20</td>
+                        <td>Lab test processing fee</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section> 
+        <form action="ThankYouPage.html" method="get" id="payment-form">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+            
+            <label for="middle-initial">Middle Initial:</label>
+            <input type="text" id="middle-initial" name="middle-initial" maxlength="1">
+            
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+            
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" maxlength="16" required>
+            
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="month" id="expiry-date" name="expiry-date" required>
+            
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" maxlength="3" required>
+            
+            <label for="payment-amount">Payment Amount:</label>
+            <input type="number" id="payment-amount" name="payment-amount" step="0.01" required>
+            
+            <button type="submit">Submit Payment</button>
+        </form> 
+    </main>
+    <footer>
+        <p>&copy; 2025 Bloomwell Health. All rights reserved.</p>
+    </footer> 
+    <script>
+        // Extract the username from the URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get('username'); // Get the 'username' parameter from the URL
+        if (username) {
+            document.getElementById("welcome2").textContent = `Welcome to the Patient Payment page, ${username}.`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bloomwell OBGYN</title>
+      <link rel="stylesheet" href="BloomWell.css">
+   </head>
+   <body>
+      <!-- Main Heading and logo -->
+       <!-- Hero Banner -->
+       <section class="hero">
+        <div >
+          <h1>Resources Near You</h1>
+          <a href="BloomWell Health.html">
+            <img src="BloomWelllogo.png" alt="Bloomwell OBGYN Logo" class="hero-logo">
+          </a>
+        </div>
+        <p style="margin-top: 10px; font-size: 1.2rem;">Access help when and where you need it</p>
+      </section>
+       
+
+      <!-- Navigation Bar -->
+      <nav class="nav">
+        <a href="BloomWell Health.html">Home</a> &nbsp;
+        <a href="AboutUs.html">About Us</a> &nbsp;
+         <a href="AppointmentBooking.html">Book Appointment</a> &nbsp;
+        <a href="PatientPortal.html">Patient Portal</a> &nbsp;
+        <a href="ContactUs.html">Contact Us</a>
+        <div class="toggle-switch">
+            <input type="checkbox" id="darkModeCheckbox">
+            <label for="darkModeCheckbox" class="switch-label">
+                <span class="switch-icon sun">☀️</span>
+                <span class="switch-icon moon">🌙</span>
+                <span class="switch-ball"></span>
+            </label>
+          </div>
+     </nav>
+      
+
+
+      <!-- Resources -->
+      <section id="description" class="boxed-section fade-in" style="background-color: #fff0f5; border: 2px solid var(--primary-color); border-radius: 12px; padding: 25px 30px 30px; margin: 40px auto; max-width: 900px;">
+        <h2 style="margin-top: 0; font-size: 2rem; font-weight: bold; color: var(--secondary-color);">Find Care</h2>
+        <p style="margin: 20px 0 0; font-size: 1.1rem; color: #4a2b3b;">Need services right now? See available resources based on your location below. If you do not need immediate care, please book an appointment with us!</p>
+        <div class="forms-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 25px;">
+          <a href="ContactUs.html" target="_blank" style="background-color: var(--secondary-color); color: white; padding: 15px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block;">
+            <i class="fas fa-file-alt"></i> Contact Us
+          </a>
+        <div>
+      </section>  
+      
+      <section id="resources" class="boxed-section fade-in" style="background-color: #fff0f5; border: 2px solid var(--primary-color); border-radius: 12px; padding: 25px 30px 30px; margin: 40px auto; max-width: 900px;">
+        <h2 style="margin-top: 0; font-size: 2rem; font-weight: bold; color: var(--secondary-color);">Help and Resources</h2>
+        <p style="margin: 20px 0 0; font-size: 1.1rem; color: #4a2b3b;">See hotlines and websites below for help and information</p>
+        <li>Planned Parenthood: 877-855-7526</li> 
+        <li>Monterey Clinic: 408-729-9700 </li>
+        <li>Story Clinic: 408-813-1169 </li>
+        <li> Women, Infants, and Children (WIC) of Santa Clara Valley: 408-960-0900</li>
+      </section>
+        
+     <section id="nearby-resources">
+        <h2>Nearby Hospitals and Emergency Services</h2>
+        <div id="hospital-list">Loading nearby resources...</div>
+      </section>
+      
+      <section id="map">
+        <h2>Visit Us</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6341.750380821961!2d-122.079557!3d37.36913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb6d266be8bc5%3A0x33340ae7d4acb8a4!2sEl%20Camino%20Health%20-%20Mountain%20View%20Hospital!5e0!3m2!1sen!2sus!4v1746514249943!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </section>
+      
+      <footer>
+        <p>📧 Email us at <a href="mailto:info@bloomwell.com" style="color: white; text-decoration: underline;">info@bloomwell.com</a></p>
+        <p>📞 Call us at <strong>(123) 456-8910</strong></p>
+        <p>&copy; 2025 Bloomwell OBGYN. All rights reserved.</p>
+     </footer>
+  <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+
+
+
+      <script>
+        function fetchNearbyHospitals(lat, lng) {
+          fetch(`/api/hospitals?lat=${lat}&lng=${lng}`)
+            .then(res => res.json())
+            .then(data => {
+              const list = document.getElementById('hospital-list');
+              list.innerHTML = '';
+    
+              if (!data.length) {
+                list.innerHTML = '<p>No nearby hospitals found.</p>';
+                return;
+              }
+    
+              data.forEach(hospital => {
+                const div = document.createElement('div');
+                div.classList.add('hospital-card');
+                div.innerHTML = `
+                  <h3>${hospital.name}</h3>
+                  <p><strong>Address:</strong> ${hospital.address}</p>
+                  <p><strong>Emergency Services:</strong> ${hospital.emergencyServices.join(', ')}</p>
+                  <p><strong>Contact:</strong> ${hospital.contact}</p>
+                `;
+                list.appendChild(div);
+              });
+            })
+            .catch(err => {
+              console.error('Fetch error:', err);
+              document.getElementById('hospital-list').innerHTML = `<p>Error: Failed to fetch hospital data. Please try again later.</p>`;
+            });
+        }
+    
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            position => {
+              const { latitude, longitude } = position.coords;
+              console.log('User location:', latitude, longitude);
+              fetchNearbyHospitals(latitude, longitude);
+            },
+            err => {
+              console.warn('Geolocation denied:', err.message);
+              document.getElementById('hospital-list').innerHTML = `
+                <p>Location access denied. You can <a href="ContactUs.html">contact us</a> for help or search manually.</p>`;
+            }
+          );
+        } else {
+          document.getElementById('hospital-list').innerHTML = `<p>Geolocation is not supported in your browser.</p>`;
+        }
+      </script>
+      <script>
+        const darkToggle = document.getElementById('darkModeCheckbox');
+      
+        // Load saved preference
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+          document.body.classList.add('dark-mode');
+          darkToggle.checked = true;
+        }
+      
+        darkToggle.addEventListener('change', () => {
+          document.body.classList.toggle('dark-mode');
+          localStorage.setItem('dark-mode', darkToggle.checked ? 'enabled' : 'disabled');
+        });
+        
+      </script>
+      
