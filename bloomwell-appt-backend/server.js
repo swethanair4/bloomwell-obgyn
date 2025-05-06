@@ -20,10 +20,8 @@ app.use((req, res, next) => {
 // MongoDB connection
 
 const mongoURI = process.env.MONGODB_URI;
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(MONGODB_URI);
+
 
 // Schema
 const Appointment = mongoose.model('Appointment', {

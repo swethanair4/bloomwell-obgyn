@@ -27,10 +27,8 @@ app.use(express.json());
 
 
 const mongoURI = process.env.MONGODB_URI;
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(MONGODB_URI);
+
 
 // GET: Nearby hospitals based on user's coordinates
 app.get('/api/hospitals', async (req, res) => {
