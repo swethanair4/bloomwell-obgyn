@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 // MongoDB connection
 
 const mongoURI = process.env.MONGODB_URI;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(mongoURI);
 
 
 // Schema
