@@ -18,13 +18,12 @@ app.use((req, res, next) => {
 });
 
 // MongoDB connection
-mongoose.connect(
-  'mongodb+srv://swethanair:bloomwell@hospitaldatabase.cqfssj7.mongodb.net/?retryWrites=true&w=majority&appName=HospitalDatabase',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
-);
+
+const mongoURI = process.env.MONGODB_URI;
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Schema
 const Appointment = mongoose.model('Appointment', {

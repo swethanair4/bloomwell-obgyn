@@ -25,9 +25,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/womens_health', {
+
+const mongoURI = process.env.MONGODB_URI;
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 // GET: Nearby hospitals based on user's coordinates
