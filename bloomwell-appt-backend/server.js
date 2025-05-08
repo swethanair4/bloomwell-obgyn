@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 // MongoDB connection
-
+MONGODB_URI = "mongodb+srv://swethanair:bloomwell@hospitaldatabase.cqfssj7.mongodb.net/?retryWrites=true&w=majority&appName=HospitalDatabase";
 const mongoURI = process.env.MONGODB_URI;
 mongoose.connect(mongoURI);
 
